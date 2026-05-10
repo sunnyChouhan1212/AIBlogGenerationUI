@@ -1,73 +1,196 @@
-# React + TypeScript + Vite
+# AI Blog Generation UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React + TypeScript frontend for the Agentic AI Blog Generator project.
 
-Currently, two official plugins are available:
+This application allows users to generate AI-powered blogs using:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- FastAPI
+- LangGraph
+- Groq LLM
+- React
+- TypeScript
+- Tailwind CSS
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Features
 
-## Expanding the ESLint configuration
+- AI blog generation
+- Markdown rendering
+- Streaming typing animation
+- Multilingual blog translation
+- Responsive UI
+- Tailwind CSS styling
+- React + TypeScript architecture
+- API integration with FastAPI backend
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- React
+- TypeScript
+- Vite
+- Tailwind CSS v4
+- Axios
+- React Markdown
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+# Project Structure
+
+```text
+src/
+│
+├── components/
+│   ├── BlogCard.tsx
+│   ├── BlogForm.tsx
+│   └── Loader.tsx
+│
+├── services/
+│   └── api.ts
+│
+├── App.tsx
+├── main.tsx
+└── index.css
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Setup Instructions
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 1. Create Project
+
+```bash
+npm create vite@latest frontend -- --template react-ts
 ```
+
+## 2. Move Into Project
+
+```bash
+cd frontend
+```
+
+## 3. Install Dependencies
+
+```bash
+npm install
+```
+
+## 4. Install Required Packages
+
+```bash
+npm install axios react-markdown
+npm install tailwindcss @tailwindcss/vite
+npm install @tailwindcss/typography
+```
+
+---
+
+# Tailwind CSS Setup
+
+## Update `vite.config.ts`
+
+```typescript
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss(),
+  ],
+});
+```
+
+## Update `src/index.css`
+
+```css
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+```
+
+---
+
+# Run Application
+
+```bash
+npm run dev
+```
+
+---
+
+# Application URL
+
+```text
+http://localhost:5173
+```
+
+---
+
+# Backend API
+
+Make sure FastAPI backend is running at:
+
+```text
+http://127.0.0.1:8000
+```
+
+Swagger Docs:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+---
+
+# Features Implemented
+
+## Blog Generation
+
+Generate SEO-friendly blogs using AI.
+
+---
+
+## Translation Support
+
+Supports:
+- Hindi
+- French
+
+---
+
+## Streaming Typing Animation
+
+Blogs render progressively like ChatGPT.
+
+---
+
+## Markdown Rendering
+
+Supports:
+- headings
+- lists
+- bold text
+- formatted content
+
+---
+
+# Future Improvements
+
+- Real-time streaming responses
+- Chat-style UI
+- Dark mode
+- Authentication
+- Multi-LLM support
+- Conversation memory
+- Deployment with Vercel
+- Docker support
+- LangSmith tracing
+
+---
+
+# Author
+
+Sunny Chouhan
